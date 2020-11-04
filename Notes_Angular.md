@@ -469,6 +469,116 @@
 ## Mise en pratique
 
 
+    app.component.html :
+
+    <div class="container">
+      <h1 class="my-5">{{ title }}</h1>
+
+
+    <div class="form-group">
+    <input [(ngModel)]="text" #inputRef id="input" placeholder="Le nom de la tache" type="text" >
+    <button type="button" id="btn" class="btn btn-primary" (click)="addTask(inputRef)">Ajouter</button>
+    </div>
+
+
+      <p *ngIf="text !=='' && text">La prochaine tache  : {{ text }} </p>
+
+      <div id="tasks">
+        <div class="task" *ngFor="let task of tasks; let id = index" (click)="deleteTask(id)"> {{ id }} - {{ task }}</div>
+      </div>
+
+      <button type="button" id="btn-save" class="btn btn-primary"
+      (click)="save()">Enregistrer</button>
+
+    </div>
+
+
+    app.component.ts :
+
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss']
+    })
+    export class AppComponent {
+      title:string = 'Mettre en pratique les bases';
+
+      tasks: string[] = [
+           'Sortir le chien',
+           'Nettoyer le salon',
+           'Jetter les poubelles'
+      ];
+
+      text:string = '';
+
+      addTask(inputRef: HTMLInputElement): void {
+        console.dir(inputRef);
+        this.tasks.push(this.text);
+        inputRef.value = '';
+        this.text = '';
+    }
+
+      deleteTask(id:number): void{
+        let arr =  [...this.tasks];
+        arr.splice(id,1);
+        this.tasks = [...arr];
+        console.log(id, this.tasks[id]);
+      }
+
+      save():void {
+        this.tasks.forEach(function (task) {
+           console.log(task);
+        });
+      }
+
+    }
+
+
+    app.component.scss   :
+
+    .form-group {
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+
+    .btn {
+      padding: 10px;
+      background: darkblue;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    #input  {
+      width: 100%;
+      height: 50px;
+      border-radius: 5px;
+      border: 1px solid #cecece;
+      padding: 0 20px;
+    }
+
+    #tasks {
+
+    }
+
+    .task {
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      background-color: #caeecd;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      transition: all .3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .task:hover {
+      background-color: lightgreen;
+      transform: translateX(2px);
+    }
 
 
 
