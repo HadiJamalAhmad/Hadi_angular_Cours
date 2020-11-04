@@ -581,6 +581,221 @@
     }
 
 
+## Découpage des composants
+
+    app.component.html  :
+
+    <div class="container">
+      <h1 class="my-5">{{ title }}</h1>
+
+
+
+      <app-add-task></app-add-task>
+
+
+      <app-task *ngFor="let task of tasks; let id = index"></app-task>
+
+
+      <button type="button" id="btn-save" class="btn btn-primary"
+      (click)="save()">Enregistrer</button>
+
+    </div>
+
+
+    app.component.ts  :
+
+    import { Component} from '@angular/core';
+
+    @Component({
+      selector: 'app-add-task',
+      templateUrl: './add-task.component.html',
+      styleUrls: ['./add-task.component.scss']
+    })
+    export class AddTaskComponent {
+
+      text: string ='';
+
+      addTask():void {
+
+      }
+
+    }
+
+
+    app.component.scss  :
+
+    .form-group {
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+
+    .btn {
+      padding: 10px;
+      background: darkblue;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    #input  {
+      width: 100%;
+      height: 50px;
+      border-radius: 5px;
+      border: 1px solid #cecece;
+      padding: 0 20px;
+    }
+
+    #tasks {
+
+    }
+
+    .task {
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      background-color: #caeecd;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      transition: all .3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .task:hover {
+      background-color: lightgreen;
+      transform: translateX(2px);
+    }
+
+
+
+## Partager des données à un composant enfant - Input decorator
+
+    task.component.ts  :
+
+    import {Component, Input} from "@angular/core";
+
+
+    @Component({
+      selector: 'app-task',
+      template: `<div class="task"> {{ id }} - {{ task }}</div>`,
+      styleUrls:  ['./task.component.scss'],
+    })
+    export class TaskComponent {
+
+        @Input('index')
+        id:number;
+        @Input() task:string;
+
+    }
+
+
+    app.component.html  :
+
+    <div class="container">
+      <h1 class="my-5">{{ title }}</h1>
+
+
+
+      <app-add-task></app-add-task>
+
+
+      <app-task *ngFor="let task of tasks; let id = index" [task]="task"  [index]="id">
+
+      </app-task>
+
+
+      <button type="button" id="btn-save" class="btn btn-primary"
+      (click)="save()">Enregistrer</button>
+
+    </div>
+
+
+## Émettre des données au composant parent
+
+    app.component.ts  :
+
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss']
+    })
+    export class AppComponent {
+      title:string = 'Mettre en pratique les bases';
+
+      tasks: string[] = [
+           'Sortir le chien',
+           'Nettoyer le salon',
+           'Jetter les poubelles'
+      ];
+
+
+
+      addTask(task: string): void {
+        this.tasks.push(task);
+    }
+
+      deleteTask(id:number): void{
+        let arr =  [...this.tasks];
+        arr.splice(id,1);
+        this.tasks = [...arr];
+        console.log(id, this.tasks[id]);
+      }
+
+      save():void {
+        this.tasks.forEach(function (task) {
+           console.log(task);
+        });
+      }
+
+    }
+
+
+    app.component.html  :
+
+    <div class="container">
+      <h1 class="my-5">{{ title }}</h1>
+
+
+
+      <app-add-task (task)="addTask($event)"></app-add-task>
+
+
+      <app-task *ngFor="let task of tasks; let id = index"
+                [task]="task"  [index]="id"
+                (click)="deleteTask(id)">
+      </app-task>
+
+
+      <button type="button" id="btn-save" class="btn btn-primary"
+      (click)="save()">Enregistrer</button>
+
+    </div>
+
+    add-task.component.ts  :
+
+    import {Component, EventEmitter, Output} from '@angular/core';
+
+    @Component({
+      selector: 'app-add-task',
+      templateUrl: './add-task.component.html',
+      styleUrls: ['./add-task.component.scss']
+    })
+    export class AddTaskComponent {
+
+      text: string ='';
+
+      @Output('task') taskEmit = new EventEmitter();
+
+      addTask():void {
+
+            this.taskEmit.emit(this.text);
+      }
+
+    }
+
+
 
 
 
