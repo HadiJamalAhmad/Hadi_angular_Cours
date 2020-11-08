@@ -796,6 +796,435 @@
     }
 
 
+## Modules dans Angular
+
+    Dans tous les language, un module sert à compartimenter le code, à l'encapsuler.
+
+    Il s'agit de séparer les fonctionnalités d'un programme et de les mettres chacun dans
+    un seul module.
+    On passe par exemple d'un module  avec 5 fonctionnalités à 5 modules avec chacun une fonctionnalité.
+
+    On définit les dépendances et les éléments notre module.
+
+    import {BrowserModule} from '@angular/platform-browser';
+    import {NgModule} from '@angular/core';
+
+    import {AppRoutingModule} from './app-routing.module';
+    import {AppComponent} from './components/app/app.component';
+    import {HomeComponent} from './components/home/home.component';
+    import {AboutComponent} from './components/about/about.component';
+    import {FormsModule} from "@angular/forms";
+    import {TaskComponent} from "./components/task/task.component";
+    import {AddTaskComponent} from './components/add-task/add-task.component';
+
+    @NgModule({
+      declarations: [
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        TaskComponent,
+        AddTaskComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+      ],
+      providers: [],
+      exports: [], //Permet d'exporter des services et des composants de notre module
+      bootstrap: [AppComponent]
+    })
+    export class AppModule {
+    }
+
+
+## Routing
+
+    navbar.component.html
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item" routerLink="/users" routerLinkActive="active">
+            <a class="nav-link">Users</a>
+          </li>
+          <li class="nav-item" routerLink="/users/info" routerLinkActive="active">
+            <a class="nav-link">Info</a>
+          </li>
+          <li class="nav-item" routerLink="/contact" routerLinkActive="active">
+            <a class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item" routerLink="/users" routerLinkActive="active">
+            <a class="nav-link">Users</a>
+          </li>
+          <li class="nav-item" routerLink="/users/info" routerLinkActive="active">
+            <a class="nav-link">Info</a>
+          </li>
+          <li class="nav-item" routerLink="/contact" routerLinkActive="active">
+            <a class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link">Dashboard</a>
+      </li>
+      <li class="nav-item" routerLink="/users" routerLinkActive="active">
+        <a class="nav-link">Users</a>
+      </li>
+      <li class="nav-item" routerLink="/users/info" routerLinkActive="active">
+        <a class="nav-link">Info</a>
+      </li>
+      <li class="nav-item" routerLink="/contact" routerLinkActive="active">
+        <a class="nav-link">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item" routerLink="/users" routerLinkActive="active">
+            <a class="nav-link">Users</a>
+          </li>
+          <li class="nav-item" routerLink="/users/info" routerLinkActive="active">
+            <a class="nav-link">Info</a>
+          </li>
+          <li class="nav-item" routerLink="/contact" routerLinkActive="active">
+            <a class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    Routing : Params
+
+    users.component.ts
+
+    import {Component, OnInit} from "@angular/core";
+
+
+    @Component({
+      selector: 'app-users',
+      templateUrl: './users.component.html',
+
+    })
+    export class UsersComponent implements OnInit{
+
+        users: {id: number, name:string} [] = [
+          {id:1, name:'John'},
+          {id:2, name:'Sam'}
+        ];
+
+
+        constructor() {
+        }
+
+        ngOnInit() {
+        }
+
+    }
+
+
+    info.component.ts
+
+    import {ActivatedRoute} from "@angular/router";
+
+
+    @Component({
+      selector: 'app-info',
+      templateUrl: './info.component.html',
+
+    })
+    export class InfoComponent implements OnInit {
+
+      constructor(private route: ActivatedRoute) {
+      }
+
+      public id: string;
+
+      ngOnInit() {
+        console.log(this.route.snapshot.params.id);
+        this.id = this.route.snapshot.params.id;
+      }
+
+
+    }
+
+    <h1>Info works!</h1>
+
+    <p>Id de l'utilisateur : {{ id }}</p>
+
+    <button class="btn btn-primary" routerLink="..">Retour</button>
+
+
+##   Routing : Router service
+
+    user.component.html
+
+    <h1>Users works !</h1>
+
+    <ul>
+      <li *ngFor="let user of users" (click)="showInfo(user.id)">
+        {{ user.id }}.  {{ user.name }}</li>
+    </ul>
+
+
+    user.component.ts
+
+    import {Component, OnInit} from "@angular/core";
+    import {timeout} from "rxjs/operators";
+    import {Router} from "@angular/router";
+
+
+    @Component({
+      selector: 'app-users',
+      templateUrl: './users.component.html',
+
+    })
+    export class UsersComponent implements OnInit {
+
+      users: { id: number, name: string } [] = [
+        {id: 1, name: 'John'},
+        {id: 2, name: 'Sam'}
+      ];
+
+
+      constructor(private router: Router) {
+      }
+
+      ngOnInit() {
+
+        setTimeout(() => {
+          // Au bout de 3 secondes
+          // Redirige vers les info de l'utilisateur 1
+          //  this.router.navigateByUrl('/users/1');
+        })
+      }
+
+      public showInfo(id: number) {
+
+        this.router.navigateByUrl('/users'+ id);
+
+      }
+
+
+    }
+
+
+    info.component.html
+
+    <h1>Info works!</h1>
+
+    <p>Id de l'utilisateur : {{ id }}</p>
+
+    <button class="btn btn-primary" (click)="goBack()">Retour</button>
+
+## Component LifeCycle
+
+    app.component.html
+
+
+
+
+<div class="container">
+
+  <app-navbar></app-navbar>
+
+  <app-lifecycle [title]="title"   [var1]="'A'"></app-lifecycle>
+
+  <router-outlet></router-outlet>
+
+</div>
+
+
+    lifecycle.component.ts
+
+    import {
+      AfterContentChecked,
+      AfterContentInit, AfterViewChecked,
+      AfterViewInit,
+      Component,
+      DoCheck, Input,
+      OnChanges, OnDestroy,
+      OnInit, SimpleChanges
+    } from '@angular/core';
+
+    @Component({
+      selector: 'app-lifecycle',
+      templateUrl: './lifecycle.component.html',
+      styleUrls: ['./lifecycle.component.scss']
+    })
+    export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+
+      @Input() title = '';
+      @Input() var1 = '';
+
+
+      constructor() {
+      }
+
+      ngOnChanges(changes: SimpleChanges): void {
+        console.log('On Changes - LifeCycle', changes.title.previousValue, changes.title.currentValue);
+      }
+
+      ngOnInit(): void {
+        console.log('On Init - LifeCycle');
+      }
+
+      ngAfterContentChecked(): void {
+        console.log('On Init - LifeCycle');
+      }
+
+      ngDoCheck(): void {
+        console.log('Do Check - LifeCycle');
+      }
+
+      ngAfterContentInit(): void {
+        console.log('After Content - LifeCycle');
+        if(this.title === this.var1){
+          //Notre code
+        }
+      }
+
+      ngAfterViewInit(): void {
+        console.log('After View Init - LifeCycle');
+      }
+
+      ngAfterViewChecked(): void {
+        console.log('After View Checked - LifeCycle');
+      }
+
+      ngOnDestroy(): void {
+        console.log('On Destroy - LifeCycle');
+      }
+
+    }
+
+
+## Programmation réactive avec la librairie RxJs
+
+    index.html
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+
+    </head>
+    <meta charset="UTF-8">
+    <title>Rxjs</title>
+    <body>
+    <div class="container">
+
+      <h1 class="my-5">Programmation reactive avec la librairie RxJs</h1>
+
+      <button class="btn btn-primary">Button</button>
+
+
+    </div>
+
+    <script  src="https://unpkg.com/rxjs/bundles/rxjs.umd.min.js"></script>
+
+    <script src="index.js"></script>
+    </body>
+    </html>
+
+
+    index.js
+
+    const {Observable, fromEvent} = rxjs;
+    const {map} = rxjs.operators;
+
+    const button = document.querySelector('button');
+
+    let count = 0;
+    const subscription = fromEvent(button,'click')
+      .pipe(map((value)=> {
+        console.log('value', value);
+        return 50;
+      }),)
+      .subscribe(
+      (value)=> { console.log(++count, value); },
+      ()=> {},
+      ()=> {});
+
+    // Un flux de données
+    const flux = new Observable(function (observer) {
+      observer.next(1);
+      observer.next(10);
+      observer.next(100);
+
+
+      setTimeout(()=> {
+        observer.next(20);
+        observer.complete();
+
+      }, 2000);
+    });
+
+    const abonnement = flux.subscribe(
+
+      function(value) {
+        console.log('La valeur est :',value);
+      },
+      function(err) {
+        console.log('Erreur :', err);
+      },
+      function(complete) {
+        console.log('Complet');
+      }
+    );
+
+    abonnement.unsubscribe();
+    subscription.unsubscribe();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
