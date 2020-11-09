@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44b4e7b9-5c8d-47c0-91d2-4b2c65518094" name="Default Changelist" comment="b">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/angular.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/angular.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Notes_Angular.md" beforeDir="false" afterPath="$PROJECT_DIR$/Notes_Angular.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app" beforeDir="false" afterPath="$PROJECT_DIR$/my-app" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604311891471</updated>
-      <workItem from="1604311892590" duration="142051000" />
+      <workItem from="1604311892590" duration="150236000" />
     </task>
     <task id="LOCAL-00001" summary="b">
       <created>1604450644473</created>
@@ -96,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604506839768</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="b">
+      <created>1604873802386</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604873802386</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,10 +149,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1604851258945" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604506846263">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604873808649">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604506846263" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604873808649" />
     <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604450761432">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
