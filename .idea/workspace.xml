@@ -61,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604311891471</updated>
-      <workItem from="1604311892590" duration="151459000" />
+      <workItem from="1604311892590" duration="156988000" />
     </task>
     <task id="LOCAL-00001" summary="b">
       <created>1604450644473</created>
@@ -112,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604927548261</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="b">
+      <created>1604928075105</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604928075105</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,18 +134,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1604853197713" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1604928498939">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1604928498939" />
     <state x="345" y="142" key="EditFileWatcherDialog" timestamp="1604398422490">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="345" y="142" key="EditFileWatcherDialog/0.0.1366.728@0.0.1366.728" timestamp="1604398422490" />
-    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1604653724951">
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1604927977887">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604653724951" />
-    <state x="561" y="262" key="Github.ShareDialog" timestamp="1604312134920">
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604927977887" />
+    <state x="561" y="262" key="Github.ShareDialog" timestamp="1604928012558">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="561" y="262" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1604312134920" />
+    <state x="561" y="262" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1604928012558" />
     <state x="491" y="69" key="Github.UntrackedFilesDialog" timestamp="1604312150339">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -163,14 +174,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1604851258945" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604927505247">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1604928308885">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604927505247" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604450761432">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1604928308885" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604928061118">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604450761432" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1604928061118" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1604841502774">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
